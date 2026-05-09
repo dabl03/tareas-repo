@@ -1,3 +1,4 @@
+// Tarea de obtener x,y,z numeros y buscar la variable con el numero mas cercano a 10.
 Proceso search3number
 	Definir x, y_, z Como Real;
 	Definir is_squal Como Logico;
@@ -40,7 +41,7 @@ Proceso search3number
 			Escribir "z";
 		FinSi
 	FinSi
-	// Si su valor fué 10 entonces no mostramos si se acerca mas a 10.
+	// Si su valor fuÃ© 10 entonces no mostramos si se acerca mas a 10.
 	Si x<>0 Entonces
 		// Primero debemos comprobar si x es igual a otra variables.
 		Si x=y_ y x<z Entonces
