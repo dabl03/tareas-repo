@@ -1,5 +1,3 @@
-# @todo: Hacer documentación.
-
 """
 Un arqueólogo digital ha encontrado un pergamino con una secuencia de símbolos astronómicos representados por números enteros positivos (códigos ASCII). Ha descubierto que el texto original se codificaba mediante un Árbol Binario de Búsqueda (ABB) desbalanceado mediante el siguiente proceso:
 
