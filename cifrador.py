@@ -315,23 +315,18 @@ class RootTree():
         str_tree=str(node);
         len_=len(str_tree);
         out=[chr for chr in str_tree];
-        level=0;
-        return str_tree;
+        level=1;
         for i in range(len_):
-            if level>0:
-                # Al inicio no queremos identación.
-                if str_tree[i]=='(':
-                    out[i]="(\n"+('    '*level);
-                    level+=1;
-                    continue;
-                elif str_tree[i]==')':
-                    level-=1;
-                    if level<0:
-                        raise NotImplementedError("Ha ocurrido un error en la implementacion __str__() de la clase Node().");
-                    out[i]=(' '*level)+")\n";
-                    continue;
-        if out[-1]=='\n':
-            out[-1]='';
+            # Al inicio no queremos identación.
+            if str_tree[i]=='(':
+                out[i]="(\n"+('    '*level);
+                level+=1;
+                continue;
+            elif str_tree[i]==')':
+                level-=1;
+                if level<0:
+                    raise NotImplementedError("Ha ocurrido un error en la implementacion __str__() de la clase Node().");
+                out[i]='\n'+('    '*level)+")";
         return ''.join(out);
     def searchInput(binTree:RootTree, node:Node):
         """Facilita la busqueda al usuario por consola.
@@ -497,7 +492,7 @@ Nota: Dejar vacio para preorden.""";
                         except ValueError:
                             print(f"Error: No se reconoce comando.\nIngresar una de las siguientes opciones {', '.join(HELP)} para ver los comandos disponibles.");
             if is_exit: break;
-            print(binTree.rootNode);
+            print(binTree.draw());
             print(f"Nodo Padre: {node.parentNode.value if node.parentNode!=None else 'No tiene'} | Longitud del arbol: {len_}/{max_node} | Altura actual: {level}/{Node.get_top(binTree.rootNode)[1]}");
             print(f"Nodo actual: {node.value} | Hijo Izq: {node.leftNode.value if node.leftNode!=None else 'No tiene'} | Hijo Der: {node.rightNode.value if node.rightNode!=None else 'No tiene'}");
             opt=input("?> ").lower().split();
